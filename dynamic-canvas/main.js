@@ -15,7 +15,7 @@ const renderCircles = (circle) => {
 for (let i = 0; i < 10; i++) {
     let random_x = Math.random() * window.innerWidth;
     let random_y = Math.random() * window.innerHeight;
-    const circle = new Circle(random_x, random_y, 50, "black", 2);
+    const circle = new Circle(random_x, random_y, 50, "black", 2, i + 1);
     renderCircles(circle);
 }
 
