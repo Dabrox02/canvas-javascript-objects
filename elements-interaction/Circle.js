@@ -1,12 +1,12 @@
 export class Circle {
-    constructor(x_pos, y_pos, radius, color, lineWidth, counter, speed) {
+    constructor(x_pos, y_pos, radius, color, lineWidth, text, speed) {
         this.x_pos = x_pos;
         this.y_pos = y_pos;
         this.radius = radius;
         this.color = color;
         this.lineWidth = lineWidth;
-        this.counter = counter;
-        this.speed = speed ? speed : 3;
+        this.text = text;
+        this.speed = speed;
         this.dx = 1 * this.speed; // Cambio en x por frame basado en la velocidad
         this.dy = 1 * this.speed;
     }
@@ -14,11 +14,11 @@ export class Circle {
     draw(context) {
         //  inicia un nuevo trazado de ruta.
         context.beginPath();
-
+        context.strokeStyle = this.color;
         context.textAlign = "center";
         context.textBaseLine = "middle";
         context.font = "14px Arial"
-        context.fillText(this.counter, this.x_pos, this.y_pos);
+        context.fillText(this.text, this.x_pos, this.y_pos);
 
         // position x, position y, circle radius, start angle, end angle,  anticlockwise?
         context.arc(this.x_pos, this.y_pos, this.radius, 0, Math.PI * 2, false);
@@ -36,7 +36,6 @@ export class Circle {
         const w_width = context.canvas.width;
         const w_height = context.canvas.height;
 
-        context.clearRect(0, 0, w_width, w_height);
         this.draw(context);
 
         if ((this.x_pos + this.radius) > w_width) {

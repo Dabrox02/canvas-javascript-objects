@@ -17,9 +17,7 @@ const updateCircle = () => {
     circle.update(ctx);
 }
 
-let random_x = Math.random() * window.innerWidth;
-let random_y = Math.random() * window.innerHeight;
-const circle = new Circle(random_x, random_y, 50, "black", 2);
+const circle = new Circle(100, 100, 50, "black", 2, 1, 5);
 renderCircle(circle);
 updateCircle();
 
