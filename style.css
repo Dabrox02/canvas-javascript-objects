@@ -21,6 +21,12 @@
     margin: auto;
 }
 
+body:has(canvas) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container-title {
     margin-top: 1rem;
     text-align: center;
