@@ -21,11 +21,7 @@ document.addEventListener("click", (e) => {
     }
 
     if (e.target.matches("#isSmooth")) {
-        if (e.target.checked) {
-            draw = drawSmooth;
-        } else {
-            draw = normalDraw;
-        }
+        is_smooth = e.target.checked;
     }
 
     if (e.target.matches(".clear")) {
@@ -51,17 +47,13 @@ document.addEventListener("input", (e) => {
 // mobile
 canva.addEventListener('touchstart', initLastPos);
 canva.addEventListener("touchstart", startDraw);
-canva.addEventListener('touchmove', (e) => {
-    draw(e);
-});
+canva.addEventListener('touchmove', handleMobileMove);
 canva.addEventListener("touchend", stopDraw);
 
 // desktop
 canva.addEventListener('mousedown', initLastPos);
 canva.addEventListener("mousedown", startDraw);
-canva.addEventListener('mousemove', (e) => {
-    draw(e);
-});
+canva.addEventListener('mousemove', handleDesktopMove);
 canva.addEventListener("mouseup", stopDraw);
 canva.addEventListener("mouseout", stopDraw);
 
@@ -142,8 +134,6 @@ function stopDraw(e) {
     if (e.type != "mouseout") {
         lasts_paths.push(context.getImageData(0, 0, canva.width, canva.height));
         index += 1;
-        console.log(lasts_paths);
-        console.log(index);
     }
 
 }
@@ -174,5 +164,21 @@ function undoLast() {
         index -= 1;
         lasts_paths.pop();
         context.putImageData(lasts_paths[index], 0, 0);
+    }
+}
+
+function handleMobileMove(e) {
+    if (is_smooth) {
+        handleSmoothDraw(e.touches[0]);
+    } else {
+        handleNormalDraw(e.touches[0]);
+    }
+}
+
+function handleDesktopMove(e) {
+    if (is_smooth) {
+        handleSmoothDraw(e);
+    } else {
+        handleNormalDraw(e);
     }
 }
