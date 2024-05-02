@@ -1,0 +1,88 @@
+body {
+    background-color: #272727;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.paint-app {
+    margin-top: 1rem;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.black {
+    background-color: black;
+}
+
+.tools {
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.tools .color-save {
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 20%;
+    border: 2px solid white;
+}
+
+.tools button {
+    align-self: center;
+    width: 80px;
+    height: 40px;
+}
+
+
+#canva {
+    height: 400px;
+    border: 2px solid rgb(190, 190, 190);
+}
+
+@media screen and (max-width: 720px) {
+
+    .paint-app {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #canva {
+        width: 90%;
+    }
+
+    .tools {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 1rem;
+    }
+
+    .tools button {
+        width: 100%;
+    }
+
+    .tools .color-save {
+        width: 100%;
+        border-radius: 5px;
+    }
+
+}

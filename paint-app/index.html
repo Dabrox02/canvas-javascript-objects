@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint App</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="local-style.css">
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <div class="paint-app">
+        <canvas id="canva"></canvas>
+        <div class="tools">
+            <label for="isSmooth">Smooth Line?</label>
+            <input id="isSmooth" type="checkbox" class="isSmooth">
+            <button type="button" class="undo">Undo</button>
+            <button type="button" class="clear">Clear</button>
+            <div class="color-save red"></div>
+            <div class="color-save blue"></div>
+            <div class="color-save green"></div>
+            <div class="color-save black"></div>
+            <input type="color" class="color-picker" name="color-selected" value="#000000">
+            <input type="range" min="1" max="100" value="1" class="pen-range">
+        </div>
+    </div>
+
+</body>
+
+</html>
